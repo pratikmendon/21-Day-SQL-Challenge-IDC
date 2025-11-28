@@ -120,11 +120,11 @@ LEFT JOIN evidence ec
 ON k.room = ec.room
 WHERE ec.found_time BETWEEN k.entry_time and date_add(k.exit_time, interval 15 minute)
 )
-SELECT * FROM cte_key
+SELECT `name` AS killer FROM cte_key
 UNION
-SELECT * FROM cte_calls
+SELECT `name` AS killer FROM cte_calls
 UNION
-SELECT * FROM  cte_alibis
+SELECT `name` AS killer FROM  cte_alibis
 UNION
-SELECT * FROM cte_evidence;  
+SELECT `name` AS killer FROM cte_evidence;   
 
